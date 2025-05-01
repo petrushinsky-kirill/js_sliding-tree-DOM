@@ -34,6 +34,7 @@ spans.forEach((span) => {
 
       span.addEventListener('click', function show() {
         span.nextElementSibling.style = 'display: initial';
+        span.removeEventListener('click', show);
       });
 
       span.removeEventListener('click', hide);
