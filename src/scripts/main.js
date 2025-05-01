@@ -26,12 +26,14 @@ const spans = document.querySelectorAll('span');
 
 spans.forEach((span) => {
   span.addEventListener('click', function hide() {
-    span.nextElementSibling.style = 'display: none';
+    if (span.nextElementSibling) {
+      span.nextElementSibling.style = 'display: none';
 
-    span.addEventListener('click', function show() {
-      span.nextElementSibling.style = 'display: initial';
-    });
+      span.addEventListener('click', function show() {
+        span.nextElementSibling.style = 'display: initial';
+      });
 
-    span.removeEventListener('click', hide);
+      span.removeEventListener('click', hide);
+    }
   });
 });
