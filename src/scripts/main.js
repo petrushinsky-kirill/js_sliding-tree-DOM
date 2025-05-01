@@ -26,7 +26,10 @@ const spans = document.querySelectorAll('span');
 
 spans.forEach((span) => {
   span.addEventListener('click', function hide() {
-    if (span.nextElementSibling) {
+    if (
+      span.nextElementSibling &&
+      span.nextElementSibling.tagName.toLowerCase() === 'ul'
+    ) {
       span.nextElementSibling.style = 'display: none';
 
       span.addEventListener('click', function show() {
